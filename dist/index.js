@@ -9,4 +9,6 @@ const names = ['Dylan'];
 let tuple;
 tuple = ['hello', 3];
 console.log(tuple);
+let graph = [3.30, 4.56];
+let a = ['hello', 3];
 //# sourceMappingURL=index.js.map
