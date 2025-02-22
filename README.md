@@ -46,15 +46,64 @@ In both examples below firstName is of type string
 
 #### Explicit Type
 Explicit - writing out the type:
-```
+```js
 let firstName: string = "Dylan";
 ```
 __Explicit__ type assignment are easier to read and more intentional.
 
 #### Implicit Type
 __Implicit__ - TypeScript will "guess" the type, based on the assigned value:
-```
+```js
 let firstName = "Dylan";
 ```
 > Note: Having TypeScript "guess" the type of a value is called infer.
 
+### TS Special Types
+- __Type:any__
+```ts
+let v: any = true;
+v = "string"; // no error as it can be "any" type
+Math.round(v); // no error as it can be "any" type
+```
+
+- __Type:unknown__
+```ts
+let w: unknown = 1;
+w = "string"; // no error
+w = {
+  runANonExistentMethod: () => {
+    console.log("I think therefore I am");
+  }
+} as { runANonExistentMethod: () => void}
+// How can we avoid the error for the code commented out below when we don't know the type?
+// w.runANonExistentMethod(); // Error: Object is of type 'unknown'.
+if(typeof w === 'object' && w !== null) {
+  (w as { runANonExistentMethod: Function }).runANonExistentMethod();
+}
+// Although we have to cast multiple times we can do a check in the if to secure our type and have a safer casting
+```
+
+- __Type:never__
+```ts
+let x: never = true; // Error: Type 'boolean' is not assignable to type 'never'.
+```
+
+- __Type: undefined & null__
+```ts
+let y: undefined = undefined;
+let z: null = null;
+```
+
+### TypeScript Arrays
+```ts
+const names: string[] = [];
+names.push("Dylan"); // no error
+// names.push(3); // Error: Argument of type 'number' is not assignable to parameter of type 'string'.
+```
+
+#### Readonly
+```ts
+const names: readonly string[] = ["Dylan"];
+names.push("Jack"); // Error: Property 'push' does not exist on type 'readonly string[]'.
+// try removing the readonly modifier and see if it works?
+```

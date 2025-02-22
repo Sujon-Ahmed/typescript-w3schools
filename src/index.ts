@@ -9,4 +9,11 @@ let z: null = null;
 
 const json = JSON.parse('{"firstName": "John", "lastName": "Doe", "age": 30}');
 
-console.log(typeof json);
+// console.log(typeof json);
+
+// TODO: TS Arrays
+const names: readonly string[] = ['Dylan'];
+
+// names.push('Jack');
+
+console.log(names[0]);
