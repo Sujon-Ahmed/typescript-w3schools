@@ -16,4 +16,15 @@ const names: readonly string[] = ['Dylan'];
 
 // names.push('Jack');
 
-console.log(names[0]);
+// console.log(names[0]);
+
+// TODO: TS Tuples
+let tuple: [string, number];
+tuple = ['hello', 3];
+console.log(tuple);
+
+// named tuple
+let graph: [x: number, y: number] = [3.30, 4.56];
+
+// distributed tuple
+let a: [string, number] = ['hello', 3];

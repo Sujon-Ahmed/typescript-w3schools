@@ -6,5 +6,7 @@ let x = undefined;
 let z = null;
 const json = JSON.parse('{"firstName": "John", "lastName": "Doe", "age": 30}');
 const names = ['Dylan'];
-console.log(names[0]);
+let tuple;
+tuple = ['hello', 3];
+console.log(tuple);
 //# sourceMappingURL=index.js.map
